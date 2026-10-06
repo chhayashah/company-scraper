@@ -1,0 +1,20 @@
+2026-10-06T19:09:46.540Z [info] MongoDB connected
+2026-10-06T19:09:46.549Z [info] Server running on port 5000
+2026-10-06T19:11:05.973Z [info] MongoDB connected
+2026-10-06T19:11:05.981Z [info] Server running on port 5000
+2026-10-06T19:11:18.632Z [info] Search "https://stripe.com" -> 0 sites
+2026-10-06T19:11:18.660Z [error] Job 6ac547d56c87098280912b46 failed: No URLs found to scrape
+2026-10-06T19:11:40.691Z [info] Search "https://stripe.com" -> 0 sites
+2026-10-06T19:11:43.386Z [info] Skipped https://www.zoho.com/contact-us: HTTP 404 for https://www.zoho.com/contact-us
+2026-10-06T19:11:44.542Z [info] Skipped https://www.zoho.com/about: HTTP 404 for https://www.zoho.com/about
+2026-10-06T19:11:45.958Z [info] Skipped https://www.zoho.com/about-us: HTTP 404 for https://www.zoho.com/about-us
+2026-10-06T19:11:46.098Z [info] Scraped https://www.zoho.com
+2026-10-06T19:13:16.127Z [info] Search "https://stripe.com" -> 0 sites
+2026-10-06T19:13:16.433Z [error] Failed https://www.freshworks.com: HTTP 403 for https://www.freshworks.com
+2026-10-06T19:13:19.502Z [info] Skipped https://stripe.com/contact-us: HTTP 404 for https://stripe.com/contact-us
+2026-10-06T19:13:19.962Z [info] Skipped https://www.shopify.com/contact-us: HTTP 404 for https://www.shopify.com/contact-us
+2026-10-06T19:13:21.941Z [info] Skipped https://stripe.com/about-us: HTTP 404 for https://stripe.com/about-us
+2026-10-06T19:13:22.549Z [info] Scraped https://stripe.com
+2026-10-06T19:13:22.691Z [info] Skipped https://www.shopify.com/about-us: HTTP 404 for https://www.shopify.com/about-us
+2026-10-06T19:13:23.630Z [info] Scraped https://www.shopify.com
+2026-10-06T19:13:26.003Z [info] Scraped https://www.hubspot.com
