@@ -18,3 +18,9 @@
 2026-10-06T19:13:22.691Z [info] Skipped https://www.shopify.com/about-us: HTTP 404 for https://www.shopify.com/about-us
 2026-10-06T19:13:23.630Z [info] Scraped https://www.shopify.com
 2026-10-06T19:13:26.003Z [info] Scraped https://www.hubspot.com
+2026-10-06T19:48:23.131Z [info] MongoDB connected
+2026-10-06T19:48:23.181Z [info] Server running on port 5000
+2026-10-06T19:49:09.133Z [info] MongoDB connected
+2026-10-06T19:49:09.138Z [info] Server running on port 5000
+2026-10-06T19:49:20.232Z [info] MongoDB connected
+2026-10-06T19:49:20.242Z [info] Server running on port 5000

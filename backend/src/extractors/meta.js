@@ -20,16 +20,16 @@ function cleanName(title) {
 
 function guessIndustry(text) {
   const map = {
-    "Cloud Computing": /cloud|saas|devops|kubernetes|serverless/i,
-    "Artificial Intelligence":
-      /\bai\b|machine learning|artificial intelligence|llm/i,
+    "E-commerce": /e-?commerce|online store|marketplace|storefront/i,
     Fintech: /fintech|payments?|banking|lending/i,
-    "E-commerce": /e-?commerce|online store|marketplace/i,
-    Healthcare: /health|medical|clinic|pharma/i,
     Cybersecurity: /cyber|security|encryption/i,
+    Healthcare: /health|medical|clinic|pharma/i,
     Education: /edtech|education|learning platform|courses?/i,
+    "Cloud Computing": /cloud|saas|devops|kubernetes|serverless/i,
     "Software Development":
       /software|web development|app development|it services/i,
+    "Artificial Intelligence":
+      /\bai\b|machine learning|artificial intelligence|llm/i,
   };
   for (const [name, re] of Object.entries(map)) if (re.test(text)) return name;
   return null;
@@ -106,9 +106,7 @@ function extractMeta(html, url) {
     description: description?.slice(0, 300) || null,
     address: address?.slice(0, 200) || null,
     foundedYear: founded,
-    industry: guessIndustry(
-      `${description || ""} ${$("title").text()} ${body.slice(0, 2000)}`,
-    ),
+    industry: guessIndustry(`${description || ""} ${$("title").text()}`),
     products: [...new Set(products)].slice(0, 8),
     positioning,
   };
