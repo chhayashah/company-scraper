@@ -24,7 +24,7 @@ function extractSocials(html) {
   // 2. raw HTML / embedded JSON mein chhupe links
   const raw =
     html.match(
-      /https?:\/\/(?:www\.)?(?:linkedin|twitter|x|facebook|instagram|youtube|github)\.com\/[^\s"'<>\\)]+/gi,
+      /https?:\/\/(?:www\.)?(?:linkedin|twitter|x|facebook|instagram|youtube)\.com\/[^\s"'<>\\)]+/gi,
     ) || [];
   raw.forEach((u) => {
     for (const [key, re] of Object.entries(PATTERNS)) {
