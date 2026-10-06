@@ -1,9 +1,12 @@
 import axios from "axios";
 
+const BASE = import.meta.env.VITE_API_URL || "";
+
 export const createJob = (payload) =>
-  axios.post("/api/jobs", payload).then((r) => r.data);
-export const getJob = (id) => axios.get(`/api/jobs/${id}`).then((r) => r.data);
+  axios.post(`${BASE}/api/jobs`, payload).then((r) => r.data);
+export const getJob = (id) =>
+  axios.get(`${BASE}/api/jobs/${id}`).then((r) => r.data);
 export const getCompanies = (jobId) =>
-  axios.get("/api/companies", { params: { jobId } }).then((r) => r.data);
+  axios.get(`${BASE}/api/companies`, { params: { jobId } }).then((r) => r.data);
 export const exportUrl = (format, jobId) =>
-  `/api/companies/export?format=${format}&jobId=${jobId}`;
+  `${BASE}/api/companies/export?format=${format}&jobId=${jobId}`;
