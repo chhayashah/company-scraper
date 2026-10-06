@@ -94,13 +94,17 @@ function extractMeta(html, url) {
       products.push(t);
   });
 
+  const posText = `${description || ""} ${$("title").text()}`;
   const positioning =
-    /leading|#1|number one|world'?s (best|largest)|market leader/i.test(body)
+    /world'?s (leading|best|largest|#1)|market leader|#1 |number one/i.test(
+      posText,
+    )
       ? "Leader"
-      : /fastest[- ]growing|challenger|alternative to|next[- ]gen/i.test(body)
+      : /fastest[- ]growing|challenger|alternative to|next[- ]gen/i.test(
+            posText,
+          )
         ? "Challenger"
         : null;
-
   return {
     name,
     description: description?.slice(0, 300) || null,
