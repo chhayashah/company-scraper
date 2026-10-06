@@ -6,6 +6,7 @@ export const createJob = (payload) =>
   axios.post(`${BASE}/api/jobs`, payload).then((r) => r.data);
 export const getJob = (id) =>
   axios.get(`${BASE}/api/jobs/${id}`).then((r) => r.data);
+export const getJobs = () => axios.get(`${BASE}/api/jobs`).then((r) => r.data);
 export const getCompanies = (jobId) =>
   axios.get(`${BASE}/api/companies`, { params: { jobId } }).then((r) => r.data);
 export const exportUrl = (format, jobId) =>

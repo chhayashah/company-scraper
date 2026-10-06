@@ -1,14 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: system-ui, sans-serif;
     background: #f5f6fa;
     margin: 0;
-    color: #222;
+    color: #1f2937;
 }
 
 .container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 24px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+h1 {
+    margin: 8px 0 16px;
+}
+
+.tabs {
+    display: flex;
+    gap: 6px;
+}
+
+.tab {
+    background: #e5e7eb;
+    color: #374151;
+    margin: 0;
+}
+
+.tab.active {
+    background: #4f46e5;
+    color: #fff;
 }
 
 .card {
@@ -30,12 +62,24 @@ label {
 }
 
 input,
-textarea {
+textarea,
+select {
     width: 100%;
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #d1d5db;
     border-radius: 6px;
-    box-sizing: border-box;
+    font: inherit;
+}
+
+textarea {
+    font-family: ui-monospace, monospace;
+    font-size: 13px;
+}
+
+.hint.warn {
+    color: #b45309;
+    font-size: 13px;
+    margin: 6px 0 0;
 }
 
 button,
@@ -49,7 +93,7 @@ button,
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
-    margin-right: 8px;
+    font: inherit;
 }
 
 button:disabled {
@@ -57,11 +101,48 @@ button:disabled {
     cursor: not-allowed;
 }
 
+button.secondary,
+.btn.secondary {
+    background: #e5e7eb;
+    color: #111827;
+}
+
+button.small {
+    margin: 0;
+    padding: 5px 12px;
+    font-size: 13px;
+}
+
+.form-actions,
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.actions {
+    margin-bottom: 16px;
+}
+
+.actions .btn {
+    margin-top: 0;
+}
+
 .row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 8px;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.muted {
+    color: #6b7280;
+}
+
+.center {
+    text-align: center;
+    padding: 16px;
 }
 
 .bar {
@@ -77,6 +158,76 @@ button:disabled {
     transition: width .3s;
 }
 
+.badge {
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+    background: #e5e7eb;
+}
+
+.badge.running {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.badge.completed {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.badge.failed {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.stat {
+    background: #fff;
+    border-radius: 10px;
+    padding: 14px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .08);
+}
+
+.stat-value {
+    font-size: 26px;
+    font-weight: 700;
+    color: #4f46e5;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.toolbar {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.toolbar .search {
+    flex: 1;
+    min-width: 220px;
+}
+
+.toolbar select {
+    width: auto;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -85,8 +236,76 @@ table {
 
 th,
 td {
-    padding: 8px;
+    padding: 10px 8px;
     border-bottom: 1px solid #eee;
     text-align: left;
     vertical-align: top;
+}
+
+th {
+    background: #f9fafb;
+    white-space: nowrap;
+}
+
+th.sortable {
+    cursor: pointer;
+    user-select: none;
+}
+
+th.sortable:hover {
+    color: #4f46e5;
+}
+
+.row-click {
+    cursor: pointer;
+}
+
+.row-click:hover {
+    background: #f9fafb;
+}
+
+.cell-line {
+    word-break: break-all;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.chip {
+    background: #eef2ff;
+    color: #3730a3;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    word-break: break-all;
+}
+
+.chip.link {
+    text-decoration: none;
+}
+
+.chip.link:hover {
+    background: #c7d2fe;
+}
+
+.detail-row td {
+    background: #f9fafb;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+    padding: 4px;
+}
+
+.detail-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #6b7280;
+    text-transform: uppercase;
+    margin-bottom: 4px;
 }

@@ -7,13 +7,16 @@ export default function JobForm({ onSubmit, disabled }) {
   const submit = (e) => {
     e.preventDefault();
     onSubmit({
-      query,
+      query: query.trim(),
       urls: urls
         .split("\n")
         .map((u) => u.trim())
         .filter(Boolean),
     });
   };
+
+  const looksLikeUrl = /^(https?:\/\/|www\.)\S+$/i.test(query.trim());
+  const empty = !query.trim() && !urls.trim();
 
   return (
     <form onSubmit={submit} className="card">
@@ -23,6 +26,12 @@ export default function JobForm({ onSubmit, disabled }) {
         onChange={(e) => setQuery(e.target.value)}
         placeholder="cloud computing startups in Europe"
       />
+      {looksLikeUrl && (
+        <p className="hint warn">
+          Ye URL lag raha hai. URLs neeche wale box mein daalo.
+        </p>
+      )}
+
       <label>Or seed URLs (one per line)</label>
       <textarea
         rows={4}
@@ -30,9 +39,24 @@ export default function JobForm({ onSubmit, disabled }) {
         onChange={(e) => setUrls(e.target.value)}
         placeholder={"https://example.com\nhttps://another.io"}
       />
-      <button disabled={disabled || (!query.trim() && !urls.trim())}>
-        Start Scraping
-      </button>
+
+      <div className="form-actions">
+        <button disabled={disabled || empty}>
+          {disabled ? "Scraping..." : "Start Scraping"}
+        </button>
+        {(query || urls) && !disabled && (
+          <button
+            type="button"
+            className="secondary"
+            onClick={() => {
+              setQuery("");
+              setUrls("");
+            }}
+          >
+            Clear
+          </button>
+        )}
+      </div>
     </form>
   );
 }
