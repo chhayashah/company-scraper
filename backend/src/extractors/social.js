@@ -12,12 +12,26 @@ const PATTERNS = {
 function extractSocials(html) {
   const $ = cheerio.load(html);
   const out = {};
+
+  // 1. normal <a href> links
   $("a[href]").each((_, el) => {
     const href = $(el).attr("href");
     for (const [key, re] of Object.entries(PATTERNS)) {
       if (!out[key] && re.test(href)) out[key] = href.split("?")[0];
     }
   });
+
+  // 2. raw HTML / embedded JSON mein chhupe links
+  const raw =
+    html.match(
+      /https?:\/\/(?:www\.)?(?:linkedin|twitter|x|facebook|instagram|youtube|github)\.com\/[^\s"'<>\\)]+/gi,
+    ) || [];
+  raw.forEach((u) => {
+    for (const [key, re] of Object.entries(PATTERNS)) {
+      if (!out[key] && re.test(u)) out[key] = u.split("?")[0];
+    }
+  });
+
   return out;
 }
 
